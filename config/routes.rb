@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :districts, only: [:index, :show] do
     resources :candidates do
-      resources :votes, except: [:index, :show, :edit, :update]
+      resources :votes, only: [:create, :destroy, :new]
     end
   end
 end
