@@ -1,0 +1,8 @@
+<h2><%= @district.name %></h2>
+<%= image_tag @district.img_url %>
+<h3>Candidates <%= link_to "(+)", new_district_candidate_path(@district) %></h3>
+<% @district.candidates.each do |candidate| %>
+  <div class="candidate">
+    <%= link_to candidate.name, district_candidate_path(@district, candidate) %>
+  </div>
+<% end %>
