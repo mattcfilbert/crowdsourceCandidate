@@ -1,3 +1,5 @@
+require_relative '20170804150606_create_districts.rb'
+
 class CreateCandidates < ActiveRecord::Migration[5.1]
   def change
     create_table :candidates do |t|
