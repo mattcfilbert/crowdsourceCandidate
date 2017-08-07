@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :candidates do
     resources :votes, only: [:create, :new]
   end
+
+  resources :zipcodes, only: [:index, :show]
 end
