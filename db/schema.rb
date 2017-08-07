@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804182112) do
+ActiveRecord::Schema.define(version: 20170807194029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20170804182112) do
     t.string "slogan"
     t.text "about"
     t.integer "vote_count", default: 0
-    t.bigint "district_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "district_id"
     t.index ["district_id"], name: "index_candidates_on_district_id"
   end
 
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20170804182112) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "distzips", force: :cascade do |t|
+    t.bigint "district_id", null: false
+    t.bigint "zipcode_id", null: false
+    t.index ["district_id"], name: "index_distzips_on_district_id"
+    t.index ["zipcode_id"], name: "index_distzips_on_zipcode_id"
+  end
+
   create_table "votes", force: :cascade do |t|
     t.text "reason"
     t.bigint "candidate_id"
@@ -43,6 +50,14 @@ ActiveRecord::Schema.define(version: 20170804182112) do
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
   end
 
+  create_table "zipcodes", force: :cascade do |t|
+    t.integer "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "candidates", "districts"
+  add_foreign_key "distzips", "districts"
+  add_foreign_key "distzips", "zipcodes"
   add_foreign_key "votes", "candidates"
 end

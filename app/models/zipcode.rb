@@ -1,5 +1,5 @@
 class Zipcode < ApplicationRecord
-  has_many :distZips, dependent: :destroy
-  has_many :districts, through: :distZips
+  has_many :distzips, dependent: :destroy
+  has_many :districts, through: :distzips
   validates :zip, presence: true
 end

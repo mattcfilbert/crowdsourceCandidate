@@ -9,7 +9,6 @@ class CreateCandidates < ActiveRecord::Migration[5.1]
       t.string :slogan
       t.text :about
       t.integer :vote_count
-      t.references :district, index: true, foreign_key: true
       t.timestamps
     end
   end
