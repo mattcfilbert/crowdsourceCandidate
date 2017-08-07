@@ -1,1 +1,20 @@
 <h2><%= @candidate.name %></h2>
+<h4><%=link_to "Edit Profile", edit_district_candidate_path(@candidate.district, @candidate)%></h4>
+<h3>"<%= @candidate.slogan %>"</h3>
+
+<h3>Party: <%= @candidate.party %> | District: <%= @candidate.district.name %> | Votes: <%= @candidate.vote_count %></h3>
+<img src="<%= @candidate.img_url %>" class="cand_img" alt="Image of <%= @candidate.name %>">
+
+<h3>About <%= @candidate.name %>:</h3>
+<p><%= @candidate.about %></p>
+
+<h3>Votes</h3>
+<%= link_to "Click here to vote for #{@candidate.name}!", new_district_candidate_vote_path(@candidate.district, @candidate)%>
+<% @candidate.votes.each do |vote| %>
+  <div class="vote">
+    <time>Vote cast at <%= vote.created_at %></time>
+    <p>
+    I support <%= @candidate.name %> because... <%= vote.reason %>
+    </p>
+  </div>
+<% end %>

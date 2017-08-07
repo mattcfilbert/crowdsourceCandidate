@@ -1,8 +1,19 @@
 <h2><%= @district.name %></h2>
 <%= image_tag @district.img_url %>
 <h3>Candidates <%= link_to "(+)", new_district_candidate_path(@district) %></h3>
+
+<% sortList = [] %>
 <% @district.candidates.each do |candidate| %>
+<% sortList << candidate %>
+<% end %>
+
+<% sortList = sortList.sort_by { |votes| votes[:vote_count]}.reverse %>
+
+
+<ol>
+<% sortList.each do |candidate| %>
   <div class="candidate">
-    <%= link_to candidate.name, district_candidate_path(@district, candidate) %>
+  <li> <%= link_to candidate.name, district_candidate_path(@district, candidate) %> Votes: <%= candidate.vote_count %> </li>
   </div>
 <% end %>
+</ol>

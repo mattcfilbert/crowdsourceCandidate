@@ -45,6 +45,6 @@ class CandidatesController < ApplicationController
 
   private
   def candidate_params
-    params.require(:candidate).permit(:name, :slogan, :img_url, :about, :vote_count, :district_id)
+    params.require(:candidate).permit(:name, :slogan, :img_url, :party, :about, :vote_count, :district_id)
   end
 end

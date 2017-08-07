@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   resources :districts, only: [:index, :show] do
     resources :candidates do
-      resources :votes, only: [:create, :destroy, :new]
+      resources :votes, only: [:create, :new]
     end
+  end
+
+  resources :candidates do
+    resources :votes, only: [:create, :new]
   end
 end
