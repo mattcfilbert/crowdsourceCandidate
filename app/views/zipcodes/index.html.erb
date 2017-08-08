@@ -1,0 +1,11 @@
+<h2>Enter your zipcode</h2>
+
+<%= form_for @zipcode, url: zipcodes_path do |f| %>
+
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+
+  <%= f.submit, method: :get %>
+
+
+<% end %>

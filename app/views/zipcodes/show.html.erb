@@ -1,0 +1,24 @@
+<h2><%= @zipcode.zip %></h2>
+
+<% @zipcode.districts.each do |district| %>
+  <div class="distzip">
+
+    <h3> <%= link_to "The fightin' #{district.name}", district_path(district)%></h3>
+
+    <% sortList = [] %>
+    <% district.candidates.each do |candidate| %>
+    <% sortList << candidate %>
+    <% end %>
+
+    <% sortList = sortList.sort_by { |votes| votes[:vote_count]}.reverse %>
+
+    <ol>
+    <% sortList[0..2].each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, district_candidate_path(district, candidate) %> Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
+    <h4> <%= link_to "View more candidates from Virginia's #{district.name} District!", district_path(district)%></h4>
+  </div>
+<% end %>

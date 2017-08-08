@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "districts#index"
+  root to: "zipcodes#index"
 
   resources :districts, only: [:index, :show] do
     resources :candidates do
@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     resources :votes, only: [:create, :new]
   end
 
-  resources :zipcodes, only: [:index, :show]
+  get "zipcodes" => "zipcodes#index"
+  get "zipcodes/:zip" => "zipcodes#show"
+
+
 end
