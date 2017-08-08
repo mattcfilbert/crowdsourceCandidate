@@ -1,7 +1,9 @@
 <h3><%= link_to "The fightin' #{@candidate.district.name}", district_path(@candidate.district) %></h3>
 
 <h2><%= @candidate.name %></h2>
-<h4><%=link_to "Edit Profile", edit_district_candidate_path(@candidate.district, @candidate)%></h4>
+<% if @candidate.user == current_user %>
+  <h4><%=link_to "Edit Profile", edit_district_candidate_path(@candidate.district, @candidate)%></h4>
+<% end %>
 <h3>"<%= @candidate.slogan %>"</h3>
 
 <h3>Party: <%= @candidate.party %> | District: <%= @candidate.district.name %> | Votes: <%= @candidate.vote_count %></h3>

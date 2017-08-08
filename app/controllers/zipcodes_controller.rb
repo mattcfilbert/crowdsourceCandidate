@@ -7,4 +7,8 @@ class ZipcodesController < ApplicationController
   def show
     @zipcode = Zipcode.find_by_zip(params[:zip])
   end
+
+  def create
+    redirect_to "/zipcodes/#{params[:zipcode][:zip]}"
+  end
 end

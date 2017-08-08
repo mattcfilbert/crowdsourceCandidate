@@ -54,7 +54,7 @@ class CandidatesController < ApplicationController
     else
       flash[:alert] = "Only the owner of a candidate profile can delete it."
     end
-    redirect_to district_candidates_path(@candidate.district)
+    redirect_to district_path(@candidate.district)
   end
 
   private

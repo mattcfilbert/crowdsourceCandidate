@@ -1,6 +1,11 @@
 <h2>The fightin' <%= @district.name %> District of Virginia</h2>
 <%= image_tag @district.img_url %>
-<h3>Candidates <%= link_to "(+)", new_district_candidate_path(@district) %></h3>
+<% if current_user %>
+  <h3>Candidates <%= link_to "(+ NEW)", new_district_candidate_path(@district) %></h3>
+<% else %>
+  <h3>Candidates <%= link_to "(Sign up to run for office!)", new_user_registration_path %></h3>
+<% end %>
+
 
 <% sortList = [] %>
 <% @district.candidates.each do |candidate| %>
@@ -13,7 +18,7 @@
 <ol>
 <% sortList.each do |candidate| %>
   <div class="candidate">
-  <li> <%= link_to candidate.name, district_candidate_path(@district, candidate) %> Votes: <%= candidate.vote_count %> </li>
+  <li> <%= link_to candidate.name, district_candidate_path(@district, candidate) %> | Votes: <%= candidate.vote_count %> </li>
   </div>
 <% end %>
 </ol>

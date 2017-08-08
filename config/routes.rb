@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get "zipcodes" => "zipcodes#index"
   get "zipcodes/:zip" => "zipcodes#show"
+  post "zipcodes" => "zipcodes#create"
 
 
 end

@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .alert, .notice {
+ .flash {
    border: 1px solid black;
    padding: 1em;
    background: #eee;
@@ -22,3 +22,8 @@
 
  .alert  { color: red;  }
  .notice { color: blue; }
+
+ .candidate {
+   background-color: #ADD8E6;
+   border: 1px solid black;
+ }
