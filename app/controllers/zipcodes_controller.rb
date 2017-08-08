@@ -1,6 +1,5 @@
 class ZipcodesController < ApplicationController
   def index
-    @zipcodes = Zipcode.all
     @zipcode = Zipcode.new
   end
 
