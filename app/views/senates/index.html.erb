@@ -1,0 +1,6 @@
+<h2>The State Senate Districts of Virginia</h2>
+<% @senates.each do |senate| %>
+  <div class="senate">
+    <h3><%= link_to "The fightin' #{senate.name}!", senate_path(senate) %></h3>
+  </div>
+<% end %>

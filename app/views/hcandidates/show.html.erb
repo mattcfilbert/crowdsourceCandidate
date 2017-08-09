@@ -1,0 +1,24 @@
+<h3><%= link_to "The fightin' State House District #{@hcandidate.house.name}", house_path(@hcandidate.house) %></h3>
+
+<h2><%= @hcandidate.name %></h2>
+<% if @hcandidate.user == current_user %>
+  <h4><%=link_to "Edit Profile", edit_house_hcandidate_path(@hcandidate.house, @hcandidate)%></h4>
+<% end %>
+<h3>"<%= @hcandidate.slogan %>"</h3>
+
+<h3>Party: <%= @hcandidate.party %> | State House District: <%= @hcandidate.house.name %> | Votes: <%= @hcandidate.vote_count %></h3>
+<img src="<%= @hcandidate.img_url %>" class="cand_img" alt="Image of <%= @hcandidate.name %>">
+
+<h3>About <%= @hcandidate.name %>:</h3>
+<p><%= @hcandidate.about %></p>
+
+<h3>Votes</h3>
+<%= link_to "Click here to vote for #{@hcandidate.name}!", new_house_hcandidate_hvote_path(@hcandidate.house, @hcandidate)%>
+<% @hcandidate.hvotes.each do |hvote| %>
+  <div class="vote">
+    <time>Vote cast at <%= hvote.created_at %></time>
+    <p>
+    I support <%= @hcandidate.name %> because... <%= hvote.reason %>
+    </p>
+  </div>
+<% end %>

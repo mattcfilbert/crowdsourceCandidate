@@ -1,0 +1,23 @@
+<h2>The fightin' <%= @house.name %> State House District of Virginia</h2>
+<% if current_user %>
+  <h3>Candidates <%= link_to "(+ NEW)", new_house_hcandidate_path(@house) %></h3>
+<% else %>
+  <h3>Candidates <%= link_to "(Sign up to run for office!)", new_user_registration_path %></h3>
+<% end %>
+
+
+<% sortList = [] %>
+<% @house.hcandidates.each do |hcandidate| %>
+<% sortList << hcandidate %>
+<% end %>
+
+<% sortList = sortList.sort_by { |votes| votes[:vote_count]}.reverse %>
+
+
+<ol>
+<% sortList.each do |hcandidate| %>
+  <div class="hcandidate">
+  <li> <%= link_to hcandidate.name, house_hcandidate_path(@house, hcandidate) %> | Votes: <%= hcandidate.vote_count %> </li>
+  </div>
+<% end %>
+</ol>

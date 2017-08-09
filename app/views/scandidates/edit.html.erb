@@ -1,0 +1,10 @@
+<h3><%= link_to "The fightin' State Senate District #{@scandidate.senate.name}", senate_path(@scandidate.senate) %></h3>
+<h3><%= link_to "#{@scandidate.name}'s Profile", senate_scandidate_path(@scandidate.senate, @scandidate) %></h3>
+
+<h2>Edit <%= @scandidate.name %>'s profile</h2>
+
+<%= render "form" %>
+
+<%= form_for @scandidate, method: :delete do |f| %>
+  <%= f.submit "Delete Candidate Profile", class: "delete" %>
+<% end %>

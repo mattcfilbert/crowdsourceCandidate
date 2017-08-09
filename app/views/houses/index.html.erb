@@ -1,0 +1,6 @@
+<h2>The State House Districts of Virginia</h2>
+<% @houses.each do |house| %>
+  <div class="house">
+    <h3><%= link_to "The fightin' #{house.name}!", house_path(house) %></h3>
+  </div>
+<% end %>

@@ -9,8 +9,28 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :senates, only: [:index, :show] do
+    resources :scandidates do
+      resources :svotes, only: [:create, :new]
+    end
+  end
+
+  resources :houses, only: [:index, :show] do
+    resources :hcandidates do
+      resources :hvotes, only: [:create, :new]
+    end
+  end
+
   resources :candidates do
     resources :votes, only: [:create, :new]
+  end
+
+  resources :scandidates do
+    resources :svotes, only: [:create, :new]
+  end
+
+  resources :hcandidates do
+    resources :hvotes, only: [:create, :new]
   end
 
   get "zipcodes" => "zipcodes#index"

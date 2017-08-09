@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808173624) do
+ActiveRecord::Schema.define(version: 20170809133647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(version: 20170808173624) do
   create_table "districts", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "distzips", force: :cascade do |t|
@@ -42,6 +40,58 @@ ActiveRecord::Schema.define(version: 20170808173624) do
     t.bigint "zipcode_id", null: false
     t.index ["district_id"], name: "index_distzips_on_district_id"
     t.index ["zipcode_id"], name: "index_distzips_on_zipcode_id"
+  end
+
+  create_table "hcandidates", force: :cascade do |t|
+    t.string "name"
+    t.string "party"
+    t.string "img_url"
+    t.string "slogan"
+    t.text "about"
+    t.integer "vote_count"
+    t.bigint "house_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_hcandidates_on_house_id"
+  end
+
+  create_table "houses", force: :cascade do |t|
+    t.string "name"
+    t.string "img_url"
+  end
+
+  create_table "hvotes", force: :cascade do |t|
+    t.text "reason"
+    t.bigint "hcandidate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hcandidate_id"], name: "index_hvotes_on_hcandidate_id"
+  end
+
+  create_table "scandidates", force: :cascade do |t|
+    t.string "name"
+    t.string "party"
+    t.string "img_url"
+    t.string "slogan"
+    t.text "about"
+    t.integer "vote_count"
+    t.bigint "senate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["senate_id"], name: "index_scandidates_on_senate_id"
+  end
+
+  create_table "senates", force: :cascade do |t|
+    t.string "name"
+    t.string "img_url"
+  end
+
+  create_table "svotes", force: :cascade do |t|
+    t.text "reason"
+    t.bigint "scandidate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scandidate_id"], name: "index_svotes_on_scandidate_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,13 +121,24 @@ ActiveRecord::Schema.define(version: 20170808173624) do
 
   create_table "zipcodes", force: :cascade do |t|
     t.integer "zip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "house_id"
+    t.bigint "senate_id"
+    t.string "school_district"
+    t.string "county"
+    t.string "city"
+    t.index ["house_id"], name: "index_zipcodes_on_house_id"
+    t.index ["senate_id"], name: "index_zipcodes_on_senate_id"
   end
 
   add_foreign_key "candidates", "districts"
   add_foreign_key "candidates", "users"
   add_foreign_key "distzips", "districts"
   add_foreign_key "distzips", "zipcodes"
+  add_foreign_key "hcandidates", "houses"
+  add_foreign_key "hvotes", "hcandidates"
+  add_foreign_key "scandidates", "senates"
+  add_foreign_key "svotes", "scandidates"
   add_foreign_key "votes", "candidates"
+  add_foreign_key "zipcodes", "houses"
+  add_foreign_key "zipcodes", "senates"
 end
