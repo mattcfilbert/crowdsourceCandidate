@@ -1,0 +1,19 @@
+<h2>User E-mail: <%= @user.email %></h2>
+
+<h3>House Candidate Profile</h3>
+<% @user.candidates.each do |cand| %>
+<p><%= link_to cand.name, district_candidate_path(cand.district, cand) %></p>
+<p>Votes: <%= cand.vote_count %> | District: <%= cand.district.name %></p>
+<% end %>
+
+<h3>State Senate Candidate Profile</h3>
+<% @user.scandidates.each do |cand| %>
+<p><%= link_to cand.name, senate_scandidate_path(cand.senate, cand) %></p>
+<p>Votes: <%= cand.vote_count %> | State Senate District: <%= cand.senate.name %></p>
+<% end %>
+
+<h3>State House Candidate Profile</h3>
+<% @user.hcandidates.each do |cand| %>
+<p><%= link_to cand.name, house_hcandidate_path(cand.house, cand) %></p>
+<p>Votes: <%= cand.vote_count %> | State House District: <%= cand.house.name %></p>
+<% end %>

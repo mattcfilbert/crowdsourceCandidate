@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     resources :hvotes, only: [:create, :new]
   end
 
+  resources :users, only: [:show]
+
   get "zipcodes" => "zipcodes#index"
   get "zipcodes/:zip" => "zipcodes#show"
   post "zipcodes" => "zipcodes#create"

@@ -18,7 +18,7 @@
         <%= link_to "Candidate Sign In", new_user_session_path %>
       <% else %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-        <%= current_user.email %>
+        <%= link_to current_user.email, user_path(current_user) %>
       <% end %>
       <h1> Crowd_Sourced Candidates | <%= link_to "Zipcode Input", root_path %> | <%= link_to "Districts", districts_path %></h1>
     </nav>
