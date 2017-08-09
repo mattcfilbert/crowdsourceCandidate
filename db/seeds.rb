@@ -27,7 +27,7 @@ perry = one.candidates.create(name: "Perry", party: "Perrycrat")
 	House.create(name: "#{i}")
 end
 
-50 times do |i|
+50.times do |i|
 	Senate.create(name: "#{i}")
 end
 
