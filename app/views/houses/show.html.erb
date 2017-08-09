@@ -1,4 +1,4 @@
-<h2>The fightin' <%= @house.name %> State House District of Virginia</h2>
+<h2>The fightin' State House District <%= @house.name %> of Virginia</h2>
 <% if current_user %>
   <h3>Candidates <%= link_to "(+ NEW)", new_house_hcandidate_path(@house) %></h3>
 <% else %>

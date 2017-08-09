@@ -59,6 +59,6 @@ class HcandidatesController < ApplicationController
 
   private
   def hcandidate_params
-    params.require(:hcandidate).permit(:name, :slogan, :img_url, :party, :about, :vote_count, :senate_id, :user_id)
+    params.require(:hcandidate).permit(:name, :slogan, :img_url, :party, :about, :vote_count, :house_id, :user_id)
   end
 end

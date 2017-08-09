@@ -1,5 +1,5 @@
 class Hcandidate < ApplicationRecord
-  has_many :Hvotes, dependent: :destroy
+  has_many :hvotes, dependent: :destroy
   belongs_to :house
   belongs_to :user
   validates :name, :party, presence: true, length: { maximum: 75 }

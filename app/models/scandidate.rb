@@ -1,5 +1,5 @@
 class Scandidate < ApplicationRecord
-  has_many :Svotes, dependent: :destroy
+  has_many :svotes, dependent: :destroy
   belongs_to :senate
   belongs_to :user
   validates :name, :party, presence: true, length: { maximum: 75 }

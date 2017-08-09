@@ -6,7 +6,7 @@ class CreateScandidates < ActiveRecord::Migration[5.1]
       t.string :img_url
       t.string :slogan
       t.text :about
-      t.integer :vote_count
+      t.integer :vote_count, default: 0
       t.references :senate, index: true, foreign_key: true
       t.timestamps
     end

@@ -1,5 +1,6 @@
 <h2><%= @zipcode.zip %></h2>
 
+<h3>House Districts</h3>
 <% @zipcode.districts.each do |district| %>
   <div class="distzip">
 
@@ -22,3 +23,23 @@
     <h4> <%= link_to "View more candidates from Virginia's #{district.name} District!", district_path(district)%></h4>
   </div>
 <% end %>
+
+<h3>State Senate Districts</h3>
+<div class="senate">
+  <h3> <%= link_to "The fightin' #{@zipcode.senate.name}", senate_path(@zipcode.senate)%></h3>
+  <% sensortList = [] %>
+  <% @zipcode.senate.scandidates.each do |scandidate| %>
+  <% sensortList << scandidate %>
+  <% end %>
+
+  <% sensortList = sensortList.sort_by { |votes| votes[:vote_count]}.reverse %>
+
+  <ol>
+  <% sensortList[0..2].each do |scandidate| %>
+    <div class="candidate">
+    <li> <%= link_to scandidate.name, senate_scandidate_path(@zipcode.senate, scandidate) %> Votes: <%= scandidate.vote_count %> </li>
+    </div>
+  <% end %>
+  </ol>
+  <h4> <%= link_to "View more candidates from Virginia's State Senate District #{@zipcode.senate.name}!", senate_path(@zipcode.senate)%></h4>
+</div>

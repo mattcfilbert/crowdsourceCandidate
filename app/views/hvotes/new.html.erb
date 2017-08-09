@@ -1,0 +1,10 @@
+<h2>Write your vote for <%= @hcandidate.name %>!</h2>
+
+<%= form_for ([@hcandidate, @hvote]) do |f| %>
+
+  <%= f.label :reason %>
+  <%= f.text_area :reason %>
+
+  <%= f.submit %>
+
+<% end %>

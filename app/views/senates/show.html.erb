@@ -1,4 +1,4 @@
-<h2>The fightin' <%= @senate.name %> State Senate District of Virginia</h2>
+<h2>The fightin' State Senate District <%= @senate.name %> of Virginia</h2>
 <% if current_user %>
   <h3>Candidates <%= link_to "(+ NEW)", new_senate_scandidate_path(@senate) %></h3>
 <% else %>

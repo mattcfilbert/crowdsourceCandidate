@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809133647) do
+ActiveRecord::Schema.define(version: 20170809145219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 20170809133647) do
     t.string "img_url"
     t.string "slogan"
     t.text "about"
-    t.integer "vote_count"
+    t.integer "vote_count", default: 0
     t.bigint "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["house_id"], name: "index_hcandidates_on_house_id"
+    t.index ["user_id"], name: "index_hcandidates_on_user_id"
   end
 
   create_table "houses", force: :cascade do |t|
@@ -74,11 +76,13 @@ ActiveRecord::Schema.define(version: 20170809133647) do
     t.string "img_url"
     t.string "slogan"
     t.text "about"
-    t.integer "vote_count"
+    t.integer "vote_count", default: 0
     t.bigint "senate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["senate_id"], name: "index_scandidates_on_senate_id"
+    t.index ["user_id"], name: "index_scandidates_on_user_id"
   end
 
   create_table "senates", force: :cascade do |t|
@@ -135,8 +139,10 @@ ActiveRecord::Schema.define(version: 20170809133647) do
   add_foreign_key "distzips", "districts"
   add_foreign_key "distzips", "zipcodes"
   add_foreign_key "hcandidates", "houses"
+  add_foreign_key "hcandidates", "users"
   add_foreign_key "hvotes", "hcandidates"
   add_foreign_key "scandidates", "senates"
+  add_foreign_key "scandidates", "users"
   add_foreign_key "svotes", "scandidates"
   add_foreign_key "votes", "candidates"
   add_foreign_key "zipcodes", "houses"

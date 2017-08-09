@@ -24,11 +24,11 @@ eleven = District.create(name: "11th", img_url: "https://upload.wikimedia.org/wi
 perry = one.candidates.create(name: "Perry", party: "Perrycrat")
 
 100.times do |i|
-	House.create(name: "#{i}")
+	House.create(name: "#{i+1}")
 end
 
 50.times do |i|
-	Senate.create(name: "#{i}")
+	Senate.create(name: "#{i+1}")
 end
 
 Zipcode.create(zip: 20105, school_district: "Loudoun County Public Schools", county: "Loudoun County", city: "Aldie", senate_id: 13, house_id: 10).distzips.create([{district: ten}])
