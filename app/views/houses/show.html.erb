@@ -6,18 +6,67 @@
 <% end %>
 
 
-<% sortList = [] %>
-<% @house.hcandidates.each do |hcandidate| %>
-<% sortList << hcandidate %>
-<% end %>
+<div class="all">
 
-<% sortList = sortList.sort_by { |votes| votes[:vote_count]}.reverse %>
-
-
-<ol>
-<% sortList.each do |hcandidate| %>
-  <div class="hcandidate">
-  <li> <%= link_to hcandidate.name, house_hcandidate_path(@house, hcandidate) %> | Votes: <%= hcandidate.vote_count %> </li>
+  <div class="party">
+    <h3>Democrats</h3>
+    <ol>
+    <% @democrats.each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, house_hcandidate_path(@house, candidate) %> | Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
   </div>
-<% end %>
-</ol>
+  <div class="party">
+    <h3>Republicans</h3>
+    <ol>
+    <% @republicans.each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, house_hcandidate_path(@house, candidate) %> | Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
+  </div>
+  <div class="party">
+    <h3>Independents</h3>
+    <ol>
+    <% @independents.each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, house_hcandidate_path(@house, candidate) %> | Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
+  </div>
+  <div class="party">
+    <h3>Libertarians</h3>
+    <ol>
+    <% @libertarians.each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, house_hcandidate_path(@house, candidate) %> | Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
+  </div>
+  <div class="party">
+    <h3>Greens</h3>
+    <ol>
+    <% @greens.each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, house_hcandidate_path(@house, candidate) %> | Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
+  </div>
+  <div class="party">
+    <h3>Others</h3>
+    <ol>
+    <% @others.each do |candidate| %>
+      <div class="candidate">
+      <li> <%= link_to candidate.name, house_hcandidate_path(@house, candidate) %> | Votes: <%= candidate.vote_count %> </li>
+      </div>
+    <% end %>
+    </ol>
+  </div>
+
+</div>
