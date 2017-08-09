@@ -1,5 +1,10 @@
 <h2><%= @zipcode.zip %></h2>
 
+<h3>Info</h3>
+<h4>County: <%= @zipcode.county %></h4>
+<h4>City: <%= @zipcode.city %></h4>
+<h4>School District: <%= @zipcode.school_district %></h4>
+
 <h3>House Districts</h3>
 <% @districts.each do |district| %>
   <div class="distzip">
@@ -14,7 +19,7 @@
       </div>
     <% end %>
     </ol>
-  
+
     <h4> <%= link_to "View more candidates from Virginia's #{district.name} District!", district_path(district)%></h4>
   </div>
 <% end %>
