@@ -1,5 +1,4 @@
 class CandidatesController < ApplicationController
-  before_action :authenticate_user!
 
   def new
     @district = District.find(params[:district_id])
