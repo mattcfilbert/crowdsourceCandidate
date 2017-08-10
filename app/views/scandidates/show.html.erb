@@ -1,4 +1,9 @@
 <h3><%= link_to "The fightin' State Senate District #{@scandidate.senate.name}", senate_path(@scandidate.senate) %></h3>
+<div class="<%= @scandidate.party %>">
+
+</div>
+<div class="profile">
+
 
 <h2><%= @scandidate.name %></h2>
 <% if @scandidate.user == current_user %>
@@ -11,7 +16,7 @@
 
 <h3>About <%= @scandidate.name %>:</h3>
 <p><%= @scandidate.about %></p>
-
+</div>
 <h3>Votes</h3>
 <%= link_to "Click here to vote for #{@scandidate.name}!", new_senate_scandidate_svote_path(@scandidate.senate, @scandidate)%>
 <% @scandidate.svotes.each do |svote| %>

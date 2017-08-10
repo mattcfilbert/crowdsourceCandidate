@@ -1,5 +1,6 @@
 class HcandidatesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,
+    :except => [:show]
 
   def new
     @house = House.find(params[:house_id])

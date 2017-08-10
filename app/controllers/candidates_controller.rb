@@ -1,5 +1,6 @@
 class CandidatesController < ApplicationController
-
+  before_action :authenticate_user!,
+    :except => [:show]
   def new
     @district = District.find(params[:district_id])
     @candidate = @district.candidates.new

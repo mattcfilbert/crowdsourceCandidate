@@ -1,5 +1,7 @@
 <h2>The fightin' <%= @district.name %> District of Virginia</h2>
-<%= image_tag @district.img_url %>
+<div class="image">
+  <%= image_tag @district.img_url %>
+</div>
 <% if current_user %>
   <h2>Candidates <%= link_to "(+ NEW)", new_district_candidate_path(@district) %></h2>
 <% else %>

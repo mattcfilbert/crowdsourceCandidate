@@ -1,4 +1,8 @@
 <h3><%= link_to "The fightin' #{@candidate.district.name}", district_path(@candidate.district) %></h3>
+<div class="<%= @candidate.party %>">
+
+</div>
+<div class="profile">
 
 <h2><%= @candidate.name %></h2>
 <% if @candidate.user == current_user %>
@@ -11,7 +15,7 @@
 
 <h3>About <%= @candidate.name %>:</h3>
 <p><%= @candidate.about %></p>
-
+</div>
 <h3>Votes</h3>
 <%= link_to "Click here to vote for #{@candidate.name}!", new_district_candidate_vote_path(@candidate.district, @candidate)%>
 <% @candidate.votes.each do |vote| %>

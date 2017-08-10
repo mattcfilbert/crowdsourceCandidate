@@ -27,3 +27,87 @@
    background-color: #ADD8E6;
    border: 1px solid black;
  }
+
+ .vote {
+   border: 1px solid black;
+   padding: 1em;
+   background: #eee;
+ }
+
+ .info {
+   border: 1px solid black;
+   padding: 1em;
+   background: #eee;
+ }
+
+ .all {
+   display: flex;
+   flex-direction: row;
+ }
+
+ .party {
+   margin-right: 10px;
+   border: 1px solid black;
+   padding: 1em;
+   background: #eee;
+ }
+
+ .profile {
+   border: 1px solid black;
+   padding: 1em;
+   background: #eee;
+ }
+
+ .Democrat {
+   float: left;
+   background-color: blue;
+   border: 1px solid black;
+   height: 60px;
+   width: 20px;
+   margin-right: 5px;
+ }
+
+ .Republican {
+   float: left;
+   background-color: red;
+   border: 1px solid black;
+   height: 60px;
+   width: 20px;
+   margin-right: 5px;
+ }
+
+ .Independent {
+   float: left;
+   background-color: silver;
+   border: 1px solid black;
+   height: 60px;
+   width: 20px;
+   margin-right: 5px;
+ }
+
+ .Libertarian {
+   float: left;
+   background-color: orange;
+   border: 1px solid black;
+   height: 60px;
+   width: 20px;
+   margin-right: 5px;
+ }
+
+ .Green {
+   float: left;
+   background-color: green;
+   border: 1px solid black;
+   height: 60px;
+   width: 20px;
+   margin-right: 5px;
+ }
+
+ .Other {
+   float: left;
+   background-color: white;
+   border: 1px solid black;
+   height: 60px;
+   width: 20px;
+   margin-right: 5px;
+ }
