@@ -22,6 +22,7 @@ ten = District.create(name: "10th", img_url: "https://upload.wikimedia.org/wikip
 eleven = District.create(name: "11th", img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Virginia_US_Congressional_District_11_%28since_2013%29.tif/lossless-page1-800px-Virginia_US_Congressional_District_11_%28since_2013%29.tif.png")
 
 perry = one.candidates.create(name: "Perry", party: "Perrycrat")
+# Consider creating more sample candidates so as to best show their purpose in the app
 
 100.times do |i|
 	House.create(name: "#{i+1}")

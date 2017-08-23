@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
   def record_not_found
     # handle redirect
   end
+  # Make sure to fill in this rescue function. Currently, when I search for a ZIP
+  # that it can't find, it just breaks
 end

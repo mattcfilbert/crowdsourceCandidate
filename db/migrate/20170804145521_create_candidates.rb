@@ -5,6 +5,10 @@ class CreateCandidates < ActiveRecord::Migration[5.1]
     create_table :candidates do |t|
       t.string :name
       t.string :party
+      # While this is completely acceptable for the current functionality
+      # of the app, consider whether or not `party` is its own entity with
+      # relationships with `candidate` instead of just a string attribute
+      # on `candidate`
       t.string :img_url
       t.string :slogan
       t.text :about
