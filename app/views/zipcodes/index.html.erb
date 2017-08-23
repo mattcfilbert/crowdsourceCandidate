@@ -4,6 +4,9 @@
 <h2>Enter your zipcode</h2>
 
 <%= form_for @zipcode, method: :post do |f| %>
+<%# instead of pointing the request at your `create` method (post), becuase it really
+is a request to get information, consider using a get request and simply putting / retrieving
+the submitted search info via query parameters %>
 
   <%= f.label :zip %>
   <%= f.text_field :zip %>

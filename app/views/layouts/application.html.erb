@@ -21,6 +21,8 @@
         <%= link_to current_user.email, user_path(current_user) %>
       <% end %>
       <h1> Crowd_Sourced Candidates | <%= link_to "Zipcode Input", root_path %> | <%= link_to "Districts", districts_path %></h1>
+      <%# Looking around, I can't find navigation to the other parts of the app like state house
+      and senate candidates %>
     </nav>
     <%= yield %>
   </body>

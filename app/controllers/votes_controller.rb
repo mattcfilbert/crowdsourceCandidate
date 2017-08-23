@@ -16,6 +16,7 @@ class VotesController < ApplicationController
       flash[:alert] = "I'm sorry, but the reason your vote for #{@candidate.name } did not meet the length requirements. Please try again!"
       render :new
     end
+    # Consider later adding associations to the current user to prevent multiple votes
   end
 
   private
